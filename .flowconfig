@@ -1,0 +1,15 @@
+[include]
+./src
+
+[ignore]
+
+[libs]
+
+[lints]
+
+[options]
+sharedmemory.hash_table_pow=21
+module.name_mapper='^\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
+module.system.node.resolve_dirname=node_modules
+
+esproposal.class_static_fields=enable
