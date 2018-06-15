@@ -1,11 +1,15 @@
 const path = require('path')
 
 module.exports = {
-  // entry: './src/index.js',
-  // output: {
-  //   filename: 'index.js',
-  //   path: path.resolve(__dirname, 'dist'),
-  // },
+  entry: './src/index.js',
+  devtool: 'source-map',
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'lib'),
+    library: 'library',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+  },
   module: {
     rules: [
       {
@@ -13,9 +17,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          // options: {
-          //   presets: ['babel-preset-es2015'],
-          // },
+          options: {
+            presets: ['babel-preset-es2015'],
+          },
         },
       },
     ],
