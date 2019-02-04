@@ -1,3 +1,7 @@
-import TextInput from "./components/TextInput";
+// @flow
+import RemoteDataComponent from './components/RemoteDataComponent'
+import { onStateTransition, remoteDataReducer } from './utils'
+export * from './types'
 
-export { TextInput };
+export { onStateTransition, remoteDataReducer }
+export default RemoteDataComponent
