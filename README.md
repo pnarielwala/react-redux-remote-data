@@ -12,6 +12,21 @@ npm install remote-data-component
 
 ## Usage
 
+### RemoteDataT
+This type signifies how remote data should be perceived in correlation to this package and it's components and functions
+
+```js
+type RemoteDataT<D, E, M = any> =
+  | { phase: 'NOT_ASKED', meta?: M }
+  | { phase: 'PENDING', meta?: M }
+  | { phase: 'SUCCESS', data: D, meta?: M }
+  | { phase: 'ERROR', error: ?E, meta?: M }
+```
+
+Learn more about Union Types
+
+[Flow](https://flow.org/en/docs/types/unions/) [Typescript](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+
 ### RemoteDataComponent
 
 This component allows a component to be rendered differently for different phases of remote data calls
@@ -39,7 +54,7 @@ class MyComponent extends React.Component {
         renderPending={() => <Loading />}
         renderError={() => <Error />}
         renderSuccess={data => (
-          <Content one={data.MyDataOne.data} two={data.MyDataTwo.data} />
+          <Content one={ data.MyDataOne.data } two={ data.MyDataTwo.data } />
         )}
       />
     )
@@ -62,7 +77,7 @@ This utils function is meant to be called when some actions should be taken when
 
 ```js
 import React from 'react'
-import {onStateTransition} from 'RemoteDataComponent'
+import { onStateTransition } from 'RemoteDataComponent'
 
 class MyComponent extends React.Component {
   componentDidUpdate(prevProps) {
