@@ -24,9 +24,9 @@ class RemoteDataComponent extends Component<PropsT, void> {
       renderError,
       renderNotAsked,
     } = this.props
-    const phases: Array<'NOT_ASKED' | 'PENDING' | 'SUCCESS' | 'FAILURE'> = []
+    const phases: Array<'NOT_ASKED' | 'PENDING' | 'SUCCESS' | 'ERROR'> = []
     Object.values(data).forEach(state => phases.push(state.phase))
-    if (renderError && phases.some(phase => phase === 'FAILURE')) {
+    if (renderError && phases.some(phase => phase === 'ERROR')) {
       return renderError(data)
     } else if (renderPending && phases.some(phase => phase === 'PENDING'))
       return renderPending(data)

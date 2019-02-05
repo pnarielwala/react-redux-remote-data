@@ -19,8 +19,8 @@ const remoteDataReducer = (
         return { phase: 'PENDING' }
       case `${prefix}/SUCCESS`:
         return { phase: 'SUCCESS', data: action.payload }
-      case `${prefix}/FAILURE`:
-        return { phase: 'FAILURE', error: action.payload }
+      case `${prefix}/ERROR`:
+        return { phase: 'ERROR', error: action.payload }
       default:
         return enhancer ? enhancer(state, action) : state
     }
