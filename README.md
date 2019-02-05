@@ -15,6 +15,7 @@ npm install remote-data-component
 ### RemoteDataComponent
 
 This component allows a component to be rendered differently for different phases of remote data calls
+
 | Prop | Required | Type | Description |
 |---|---|---|---|
 | data | yes | `{[key: string]: RemoteDataT<*, *>}` | Object containing API data in the `RemoteDataT` type |
@@ -49,6 +50,7 @@ class MyComponent extends React.Component {
 ### onStateTransition
 
 This utils function is meant to be called when some actions should be taken when a call transitions (eg. `PENDING` -> `SUCCESS` or `PENDING` -> `ERROR`)
+
 | Parameter | Required | Type | Description |
 |---|---|---|---|
 | prevState | yes | `RemoteDataT<*, *>` | Previous API call object |
@@ -77,6 +79,7 @@ class MyComponent extends React.Component {
 ### remoteDataReducer
 
 This utils function is meant to create a reducer function that facilitates the `RemoteDataT` API call concept
+
 | Parameter | Required | Type | Description |
 |---|---|---|---|
 | prefix | yes | `string` | Prefix string to prefix action types (eg. `MyData/PENDING`) |
